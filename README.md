@@ -5,32 +5,32 @@ A minimial OAuth2 code demo with Spring Boot.
 ## About
 
 This is an **OAuth2 enabled version** of a minimal REST service, the *TimeService*. This service has just a single resource: ```/api/time```. Calling a ```GET``` on that resource returns the current date and time.
-The interest of this repository is to illustrate the integration of standard OAuth2 resource protection, into a minimal Spring Boot REST service.
+The interest of this repository is to illustrate the integration of standard OAuth2 resource protection, on the example of a minimal Spring Boot REST service.
 
  * This demo **does not** explain the OAuth2 Protocol. [See here](https://tools.ietf.org/html/rfc6749#section-4.1) for the official protocol specifications.
  * This demo **does not** explain OAuth2 specific spring configurations. [See here](https://howtodoinjava.com/spring-boot2/oauth2-auth-server/) for explanations on that.
- * But demo **does** provide a minimal, working codebase and explains how to run and use it.
+ * This demo **does** provide a minimal, working codebase and explains how to run and use it.
 
 ### Origins
 
-This repository is partially based on [an existing OAuth2 tutorial](http://websystique.com/spring-security/secure-spring-rest-api-using-oauth2/). However, I found that tutorial hard to use in practice (overly complicated case study, outdated spring dependencies, build failures, hard to deploy).  
-I therefore made the following changes:
+This repository is partially based on [an existing OAuth2 tutorial](http://websystique.com/spring-security/secure-spring-rest-api-using-oauth2/). However, I found that tutorial hard to follow in practice. I would have preferred a spring boot enabled version, configured for current spring versions, with more detailed hands-on instructions. 
+I therefore forked the tutorial and made the following changes:
 
- * Removed the unrelated case study, applied the explained OAuth2 configurations on a minimal REST service. (The *TimeService*)
- * Converted the project build configuration (```pom.xml```) to spring boot, so that it generates a self contained ```jar``` instead of a ```war``` file. (Easier to deploy and test, no extra tomcat required)
- * Updated spring security dependencies to most recent versions and adapted java code to API updates. (Now the demo code actually compiles)
- * Enabled password hashing. (Passwords should never be stored in plain so we use a [standard hasher](https://docs.spring.io/spring-security/site/docs/4.2.14.RELEASE/apidocs/org/springframework/security/crypto/bcrypt/BCryptPasswordEncoder.html) that automatically applies [salt](https://en.wikipedia.org/wiki/Salt_(cryptography)) and [pepper](https://en.wikipedia.org/wiki/Pepper_(cryptography)) for us)
- * Added a dockerfile. (For your convenience, in case you want to deploy it on a server)
+ * Removed the (in my opinion overly complicated) case study, replaced it with a minimal REST service. (The *TimeService*)
+ * Updated the project build configuration (```pom.xml```) to spring boot, so that it now generates a self contained ```jar``` instead of a ```war``` file. (Easier to deploy and test now, no extra tomcat is required any more)
+ * Updated spring security dependencies to most recent versions and adapted java code to API updates. (The used versions were outdated and the code would not direcly compile with more recent versions.)
+ * Enabled password hashing. (Passwords should never be stored in plain so I added a [state of the art hasher](https://docs.spring.io/spring-security/site/docs/4.2.14.RELEASE/apidocs/org/springframework/security/crypto/bcrypt/BCryptPasswordEncoder.html) that automatically applies [salt](https://en.wikipedia.org/wiki/Salt_(cryptography)) and [pepper](https://en.wikipedia.org/wiki/Pepper_(cryptography)) on persisted passwords)
+ * Added a dockerfile. (Not really necessary, but quite convenient if you want to deploy the service on a server that potentially has no JDK installed.)
 
 ### Disclaimer
 
-The mechanism as described here passes tokens and credentials as request parameters. This is in perfect compliance to the [OAuth2 specs](https://tools.ietf.org/html/rfc6749#section-4.1.3). However, [without HTTPS](https://stackoverflow.com/questions/499591/are-https-urls-encrypted) URL parameters are not encrypted when communicated over the network.
+OAuth2 communicates cryptographic tokens as URL parameters. However, [without HTTPS](https://stackoverflow.com/questions/499591/are-https-urls-encrypted), such parameters are not pretected when communicated over the network.
 On top of this demo application you should [therefore always enable https](https://www.thomasvitale.com/https-spring-boot-ssl-certificate/).
 
 ## Hands-on
 
-This section provides instructions on how to power up the service and use it.  
-Bellow subsections line out the standard 3 staged pipeline, and oauth2 protocol access:
+This section provides instructions on how to power up the service and follwo the OAuth2 protocol in practice.  
+Bellow subsections line out the standard 3 staged delivery pipeline, and oauth2 protocol phases:
 
  * [Build](#build): Compile the sources and obtain an executable jar
  * [Deploy](#deploy): Power up the service, so you can actually interact with its functionality
