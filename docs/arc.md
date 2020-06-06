@@ -5,12 +5,12 @@
 This little extra document shows you how to get the prepared queries running, with minimal effort.  
 This repo contains a config file for the Advances REST Client (ARC), that allows you to test your deployed service with the click of mouse.
 
-*Note:* You still have to slighly modify some of the imported queries, for the token strings are dynamic content.
+*Note:* You still have to slightly modify some of the imported queries, for the token strings are dynamic content.
 
 ## Installation
 
 The Advanced REST client can be installed as browser plugin or natively.  
-You can [get it direclty from the developers](https://install.advancedrestclient.com/install).
+You can [get it directly from the developers](https://install.advancedrestclient.com/install).
 
 ## Import prepared queries
 
@@ -41,7 +41,7 @@ You can [get it direclty from the developers](https://install.advancedrestclient
 
 Hit the ```Send``` buttons for the individual requests in the same order as explained in the [main instructions](../README.md#access).
 
-Don't forget that you have to alter the URL parameters of *Access with Token* and *Refresh Token* with the token strings in the respons from your *Get Token query*:
+Don't forget that you have to alter the URL parameters of *Access with Token* and *Refresh Token* with the token strings in the response from your *Get Token query*:
 
  * Here are the tokens in your original *Get Token* query:
 

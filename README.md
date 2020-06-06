@@ -122,7 +122,7 @@ curl "http://127.0.0.1:8084/api/time?access_token=d2rOyaSEYCgQkkQEqE4O9VyQN94=";
 
 > Note: In rare cases, an access token can obtain special characters, e.g. a ```+``` sign. If that is the case, you have to manually escape that character, when you paste it as a URL parameter. (```+``` becomes ```%2B```, etc.)
 
-If the token is has not yet expired, you get acccess to the time resource, and receive the current date and time as a string:
+If the token has not yet expired, you get acccess to the time resource, and receive the current date and time as a string:
 
 ```bash
 2020-06-06 17:12:31.909
