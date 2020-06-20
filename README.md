@@ -118,6 +118,12 @@ Before the expiry, you can use the above *access token*, to query the protected 
 curl "http://127.0.0.1:8084/api/time?access_token=d2rOyaSEYCgQkkQEqE4O9VyQN94="; echo
 ```
 
+A common alternative to passing the token as a query parameter, is to encode it into the request header:
+
+```bash
+curl "http://127.0.0.1:8084/api/time" -H 'Authorization:Bearer d2rOyaSEYCgQkkQEqE4O9VyQN94='; echo
+```
+
 > Note: The trailing ```=``` is part of the access token.
 
 > Note: In rare cases, an access token can obtain special characters, e.g. a ```+``` sign. If that is the case, you have to manually escape that character, when you paste it as a URL parameter. (```+``` becomes ```%2B```, etc.)
