@@ -10,6 +10,8 @@ package eu.kartoffelquadrat.timeservice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
+
 /***
  * This controller tells the time via a REST interface.
  */
@@ -17,7 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class TimeController {
 
     /**
-     * Gateway method to access service functionality - may be replaced by other implementations, depending the feature selection.
+     * Gateway method to access service functionality - may be replaced by other implementations, depending the feature
+     * selection.
      *
      * @return
      */
@@ -26,3 +29,4 @@ public class TimeController {
         return TimeServiceUtils.lookUpCurrentTime();
     }
 }
+

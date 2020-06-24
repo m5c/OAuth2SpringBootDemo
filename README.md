@@ -166,6 +166,22 @@ Again, the reply is JSON object with a new pair of *access token* and *refresh t
 }
 ```
 
+#### Dynamic restrictions
+
+If your access restrictions are user scoped, you need to identify a user based on an oauth2 token. Corresponding sample code is placed in an extra controller, the [```IdentifyUserController```](src/main/java/eu/kartoffelquadrat/timeservice/IdentifyUserController.java).
+
+To identify a user, based on a valid oauth2 token:
+
+```bash
+curl "http://127.0.0.1:8084/api/username?access_token=eN5j0EumnotjtSOtd36DD8UmfIA="; echo
+```
+
+The result of above query is simply the username associated to the joined token:
+
+```bash
+max
+```
+
 ## Docker
 
 This repo also contains a [Dockerfile](Dockerfile) for convenient docker image and container support. This comes in handy when you want to dpeloy your servive on a machine that does not bring the required prerequisites, e.g. a JDK.  
