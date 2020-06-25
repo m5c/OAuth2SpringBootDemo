@@ -18,9 +18,9 @@ I therefore forked the tutorial and made the following changes:
 
  * Removed the (in my opinion overly complicated) case study, replaced it with a minimal REST service. (The *TimeService*)
  * Updated the project build configuration (```pom.xml```) to spring boot, so that it now generates a self contained ```jar``` instead of a ```war``` file. (Easier to deploy and test now, no extra tomcat is required any more)
- * Updated spring security dependencies to most recent versions and adapted java code to API updates. (The used versions were outdated and the code would not direcly compile with more recent versions.)
+ * Updated spring security dependencies to most recent versions and updated the java code, where deprecated API features were called.
  * Enabled password hashing. (Passwords should never be stored in plain so I added a [state of the art hasher](https://docs.spring.io/spring-security/site/docs/4.2.14.RELEASE/apidocs/org/springframework/security/crypto/bcrypt/BCryptPasswordEncoder.html) that automatically applies [salt](https://en.wikipedia.org/wiki/Salt_(cryptography)) and [pepper](https://en.wikipedia.org/wiki/Pepper_(cryptography)) on persisted passwords)
- * Added a dockerfile. (Not really necessary, but quite convenient if you want to deploy the service on a server that potentially has no JDK installed.)
+ * Added a dockerfile.This eases deployment, as it allows to run the service, even if the required JDK is not installed on the host.
 
 ### Disclaimer
 
