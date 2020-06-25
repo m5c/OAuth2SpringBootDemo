@@ -174,7 +174,7 @@ To identify a user, use the ```/api/username``` endpoint and pass the token as e
 Sample code for a *Header based* resolving.
 
 ```bash
-curl "http://127.0.0.1:8084/api/username" -H 'Authorization:Bearer eN5j0EumnotjtSOtd36DD8UmfIA='; echo
+curl "http://127.0.0.1:8084/api/username" -H 'Authorization:Bearer tYMBUMYMmUoLJsguZ3Ac2uabrQ0='; echo
 ```
 
 The result of above query is simply the username associated to the joined token:
