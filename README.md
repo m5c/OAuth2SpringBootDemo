@@ -115,13 +115,13 @@ In [```AuthorizationServerConfiguration.java```](src/main/java/eu/kartoffelquadr
 Before the expiry, you can use the above *access token*, to query the protected resource:
 
 ```bash
-curl "http://127.0.0.1:8084/api/time?access_token=d2rOyaSEYCgQkkQEqE4O9VyQN94="; echo
+curl "http://127.0.0.1:8084/api/time" -H 'Authorization:Bearer d2rOyaSEYCgQkkQEqE4O9VyQN94='; echo
 ```
 
-A common alternative to passing the token as a query parameter, is to encode it into the request header:
+Alternaticely you can also pass the token as a query parameter:
 
 ```bash
-curl "http://127.0.0.1:8084/api/time" -H 'Authorization:Bearer d2rOyaSEYCgQkkQEqE4O9VyQN94='; echo
+curl "http://127.0.0.1:8084/api/time?access_token=d2rOyaSEYCgQkkQEqE4O9VyQN94="; echo
 ```
 
 > Note: The trailing ```=``` is part of the access token.
@@ -170,10 +170,11 @@ Again, the reply is JSON object with a new pair of *access token* and *refresh t
 
 If your access restrictions are user scoped, you need to identify a user based on an oauth2 token. Corresponding sample code is placed in an extra controller, the [```IdentifyUserController```](src/main/java/eu/kartoffelquadrat/timeservice/IdentifyUserController.java).
 
-To identify a user, based on a valid oauth2 token:
+To identify a user, use the ```/api/username``` endpoint and pass the token as either a header or query parameter.  
+Sample code for a *Header based* resolving.
 
 ```bash
-curl "http://127.0.0.1:8084/api/username?access_token=eN5j0EumnotjtSOtd36DD8UmfIA="; echo
+curl "http://127.0.0.1:8084/api/username" -H 'Authorization:Bearer eN5j0EumnotjtSOtd36DD8UmfIA='; echo
 ```
 
 The result of above query is simply the username associated to the joined token:

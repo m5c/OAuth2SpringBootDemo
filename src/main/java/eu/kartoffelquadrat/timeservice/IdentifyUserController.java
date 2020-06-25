@@ -1,6 +1,7 @@
 package eu.kartoffelquadrat.timeservice;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 
@@ -10,6 +11,7 @@ import java.security.Principal;
  * Sample access:
  * curl "http://127.0.0.1:8084/api/username?access_token=...="
  */
+@RestController
 public class IdentifyUserController {
 
     @GetMapping(value = "/api/username")
