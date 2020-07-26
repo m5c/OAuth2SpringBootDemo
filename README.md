@@ -1,4 +1,4 @@
-# OAuth2 with Spring Boot
+OAuth2 with Spring Boot
 
 A minimial OAuth2 code demo with Spring Boot.
 
@@ -24,7 +24,7 @@ I therefore forked the tutorial and made the following changes:
 
 ### Disclaimer
 
-OAuth2 communicates cryptographic tokens as URL parameters. However, [without HTTPS](https://stackoverflow.com/questions/499591/are-https-urls-encrypted), such parameters are not pretected when communicated over the network.
+OAuth2 communicates cryptographic tokens as URL parameters. However, [without HTTPS](https://stackoverflow.com/questions/499591/are-https-urls-encrypted), such parameters are not protected when communicated over the network.
 On top of this demo application you should [therefore always enable https](https://www.thomasvitale.com/https-spring-boot-ssl-certificate/).
 
 ## Hands-on
