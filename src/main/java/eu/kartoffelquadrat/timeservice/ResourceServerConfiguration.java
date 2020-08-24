@@ -23,12 +23,13 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.
-                anonymous().disable()
-                .requestMatchers().antMatchers("/api/**")
-                .and().authorizeRequests()
-                .antMatchers("/api/**").access("hasRole('ADMIN')")
-                .and().exceptionHandling().accessDeniedHandler(new OAuth2AccessDeniedHandler());
+
+        // Enable httpSecurity for all URLs that start with /api/... This allows access to the security context and
+        // enables further access protection with "PreAuthorize" annotations. See TimeController.
+        http.authorizeRequests()
+                .antMatchers("/api/**")
+                .permitAll() // Allow by default all api access to go unauthenticated
+        ;
     }
 
 }

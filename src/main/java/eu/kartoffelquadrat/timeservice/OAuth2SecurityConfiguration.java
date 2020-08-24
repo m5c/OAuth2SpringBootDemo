@@ -37,8 +37,8 @@ public class OAuth2SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
 
         auth.inMemoryAuthentication()
-                .withUser("max").password(passwordEncoder().encode("abc123")).roles("ADMIN").and()
-                .withUser("moritz").password(passwordEncoder().encode("abc123")).roles("USER");
+                .withUser("max").password(passwordEncoder().encode("abc123")).roles("ADMIN", "TIMEUSER").and()
+                .withUser("moritz").password(passwordEncoder().encode("abc123")).roles("TIMEUSER");
     }
 
     @Override
